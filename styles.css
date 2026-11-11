@@ -1,0 +1,148 @@
+:root {
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --primary: #1f4e79;
+  --primary-dark: #163a5c;
+  --accent: #2e7d32;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --danger: #c0392b;
+  --success: #2e7d32;
+  --shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.app-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.brand { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.logo { font-size: 34px; }
+.app-header h1 { font-size: 26px; font-weight: 700; letter-spacing: 0.3px; }
+.tagline { margin-top: 6px; font-size: 14px; opacity: 0.9; }
+
+.container {
+  max-width: 960px;
+  margin: 32px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 760px) {
+  .container { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+.card h2 { font-size: 18px; color: var(--primary); margin-bottom: 16px; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+
+.tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--border);
+  background: #f9fafb;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+.tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+input[type="file"], input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+}
+.password-wrap { display: flex; gap: 8px; }
+.password-wrap input { flex: 1; }
+.ghost {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  background: #f9fafb;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--muted);
+}
+.hint { display: block; margin-top: 4px; font-size: 12px; color: var(--muted); }
+code { background: #eef2f7; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+
+.actions { display: flex; gap: 10px; margin-top: 8px; }
+.primary, .secondary {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform 0.1s, opacity 0.2s;
+}
+.primary { background: var(--primary); color: #fff; }
+.primary:hover { background: var(--primary-dark); }
+.secondary { background: #e5e7eb; color: var(--text); }
+.primary:active, .secondary:active { transform: scale(0.98); }
+.primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.status {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: none;
+}
+.status.show { display: block; }
+.status.info { background: #eef5ff; color: #1e40af; border: 1px solid #bfdbfe; }
+.status.success { background: #ecfdf5; color: var(--success); border: 1px solid #a7f3d0; }
+.status.error { background: #fef2f2; color: var(--danger); border: 1px solid #fecaca; }
+
+.progress-wrap { margin-top: 14px; display: flex; align-items: center; gap: 10px; }
+.progress-bar { flex: 1; height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
+.progress { height: 100%; width: 0%; background: var(--accent); transition: width 0.2s; }
+.progress-text { font-size: 12px; color: var(--muted); min-width: 36px; text-align: right; }
+
+.steps { padding-left: 20px; }
+.steps li { margin-bottom: 8px; font-size: 14px; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.badges span {
+  background: #eef2f7;
+  color: var(--primary);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+}
+
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 13px;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure File Encryption &amp; Decryption</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="logo">🔐</span>
+      <h1>Secure File Encryption &amp; Decryption</h1>
+    </div>
+    <p class="tagline">Protect your files locally in the browser using AES-256-GCM. No data leaves your device.</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Choose Operation</h2>
+      <div class="tabs">
+        <button class="tab active" data-mode="encrypt">Encrypt File</button>
+        <button class="tab" data-mode="decrypt">Decrypt File</button>
+      </div>
+
+      <div class="form-group">
+        <label for="fileInput">Select File</label>
+        <input type="file" id="fileInput" />
+        <small id="fileInfo" class="hint"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password / Passphrase</label>
+        <div class="password-wrap">
+          <input type="password" id="password" placeholder="Enter a strong password" />
+          <button type="button" id="togglePwd" class="ghost">Show</button>
+        </div>
+        <small class="hint">Use at least 8 characters. Remember this password — it is required to decrypt.</small>
+      </div>
+
+      <div class="form-group" id="confirmGroup" style="display:none;">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter password" />
+      </div>
+
+      <div class="actions">
+        <button id="runBtn" class="primary">Encrypt File</button>
+        <button id="resetBtn" class="secondary">Reset</button>
+      </div>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <div id="progressWrap" class="progress-wrap" style="display:none;">
+        <div class="progress-bar"><div id="progress" class="progress"></div></div>
+        <span id="progressText" class="progress-text">0%</span>
+      </div>
+    </section>
+
+    <section class="card info">
+      <h2>How It Works</h2>
+      <ol class="steps">
+        <li><strong>Select</strong> a file from your device.</li>
+        <li><strong>Enter</strong> a strong password (used to derive an AES-256 key via PBKDF2).</li>
+        <li><strong>Encrypt</strong> — the file is encrypted with AES-256-GCM and a random IV/salt.</li>
+        <li><strong>Download</strong> the encrypted <code>.enc</code> file.</li>
+        <li>To restore, <strong>Decrypt</strong> using the same password.</li>
+      </ol>
+      <div class="badges">
+        <span>AES-256-GCM</span>
+        <span>PBKDF2 (100k iterations)</span>
+        <span>Client-side only</span>
+        <span>No server upload</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Student Project — File Encryption &amp; Decryption · IBM SkillsBuild With ICT · Tanisha Sharma</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
